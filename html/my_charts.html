@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+    <!-- 复制演示：都修改成自己的路径 -->
+    <!-- 引入echarts的js库 -->
+    <script  src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="js/ecStat.min.js"></script>
+    <script type="text/javascript" src="js/dataTool.min.js"></script>
+    <script type="text/javascript" src="js/china.js"></script>
+    <script type="text/javascript" src="js/world.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+    <script type="text/javascript" src="js/bmap.min.js"></script>
+ 
+    <!-- 引入自定义的js(同文件夹下) -->
+    
+ 
+    <style type="text/css">body{height: 100%}
+    		/*通过百分比设置图表的div大小*/
+    		.chart{height: 70%}
+	</style>
+ 
+	
+ 
+</head>
+<body>
+	     <!-- echarts图表数据对象 -->
+	     <div class="chart" id="main" ></div>
+ 
+		 <!-- <script>
+		 	//固定写法
+		   var  chart = echarts.init(document.getElementById('main'));
+		    /*接受自定义Option.js中的函数返回的：option*/
+		   var mychart=mychart();
+		   chart.setOption(mychart);
+ 
+	    </script> -->
+        <script type="text/javascript" src="js/mychart.js"></script>
+ 		
+</body>
+</html>
