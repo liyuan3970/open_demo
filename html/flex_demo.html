@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/jquery.datetimepicker.css" />
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
+    <title>决策服务模板样式</title>
+
+</head>
+
+<body>
+    <!-- 全局布局 -->
+    <div
+        style="display: flex;align-content:flex-start;position: absolute; justify-content: center; flex-wrap: wrap; width: 100%;height: 100%; color: rgb(204, 203, 203); background-color: rgb(212, 202, 202);">
+        <!-- 导航栏 -->
+        <div style="background-color:rgb(211, 13, 13); width: 100%; height: 5%;border: 3px solid rgb(238, 14, 14);">
+            <div class="tabbable" id="tabs-01" style="display:block;width: 100%; height: 100%;">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#panel-1" data-toggle="tab">材料制作</a>
+                    </li>
+                    <li>
+                        <a href="#panel-2" data-toggle="tab">工具箱</a>
+                    </li>
+                    <li>
+                        <a href="#panel-3" data-toggle="tab">帮助文档</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            style="background-color:rgb(17, 16, 17); width: 100%; height: 95%;border: 3px solid rgb(236, 5, 5);display:flex ">
+            <!-- 决策材料类型 -->
+            <div style="background-color:rgb(24, 214, 97); width: 50%; height: 100%;border: 3px solid rgb(128, 0, 0);">
+                <!-- 文件头 -->
+                <div
+                    style="background-color:rgb(61, 201, 136); width: 100%; height: 100%;border: 3px solid rgb(221, 20, 20);">
+                    <!-- 材料类型选项卡 -->
+                    <div class="tab-content" style="display:block;width: 100%; height: 100%;">
+                        <div class="tab-pane active" id="panel-1"
+                            style="width:100%;height:100%;background-color:rgb(8, 116, 167)">
+                            <!-- 文件头 -->
+                            <div
+                                style="background-color:rgb(61, 201, 136); width: 100%; height: 10%;border: 3px solid rgb(221, 20, 20);">
+                                <div
+                                    style="display: inline-block;background-color:rgb(46, 194, 26); width: 33%; height: 45%;border: 3px solid rgb(32, 32, 32);">
+
+                                    <select class="form-control">
+                                        <!-- <option value="0" selected="selected" style="display: none;">材料类型</option> -->
+                                        <option value="居中">一周天气</option>
+                                        <option value="居左">气象信息快报</option>
+                                        <option value="居右">重要气象报告</option>
+                                    </select>
+
+                                </div>
+                                <div
+                                    style="display: inline-block;background-color:rgb(46, 194, 26); width: 33%; height: 45%;border: 3px solid rgb(32, 32, 32);">
+                                    <select class="form-control">
+                                        <option value="居中">台州市气象局</option>
+                                        <option value="居左">台州市气象台</option>
+
+                                    </select>
+
+                                </div>
+                                <div
+                                    style="display: inline-block;background-color:rgb(46, 194, 26); width: 33%; height: 45%;border: 3px solid rgb(32, 32, 32);">
+                                    <select class="form-control">
+                                        <option value="居中">撰稿人：翁之梅</option>
+                                        <option value="居左">撰稿人：高丽</option>
+
+                                    </select>
+
+                                </div>
+                                <div
+                                    style="display: inline-block;background-color:rgb(46, 194, 26); width: 33%; height: 45%;border: 3px solid rgb(32, 32, 32);">
+                                    期数：<input type="text" style="width: 85%;height:100% ; ">
+
+                                </div>
+                                <div
+                                    style="display: inline-block;background-color:rgb(46, 194, 26); width: 33%; height: 45%;border: 3px solid rgb(32, 32, 32);">
+                                    时间：<input id="datetimepicker1" type="text" style="width: 85%;height:100% ; ">
+                                    <script>
+                                        $('#datetimepicker1').datetimepicker(
+                                            {
+                                                theme: 'dark',
+                                                format: 'Y-m-d H:i'
+                                            }
+                                        );
+                                    </script>
+
+                                </div>
+                                <div
+                                    style="display: inline-block;background-color:rgb(46, 194, 26); width: 33%; height: 45%;border: 3px solid rgb(32, 32, 32);">
+                                    <select class="form-control">
+                                        <option value="居中">签发人：高丽</option>
+                                        <option value="居左">签发人：翁之梅</option>
+
+                                    </select>
+
+                                </div>
+
+                                <!-- 文件头 -->
+                            </div>
+                            <!-- 文件主体 -->
+                            <div
+                                style="background-color:rgb(15, 15, 15); width: 100%; height: 84%;border: 3px solid rgb(58, 128, 0);">
+                                <!-- 功能模块 -->
+                                <div
+                                    style="background-color:rgb(204, 37, 79); display:block;width: 100%; height: 65%;border: 3px solid rgb(58, 128, 0);">
+                                    <!-- 选项卡 -->
+                                    <div class="tabbable" id="tabs-001"
+                                        style="display:block;width: 100%; height: 100%;">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#panel-001" data-toggle="tab">段落</a>
+                                            </li>
+                                            <li>
+                                                <a href="#panel-002" data-toggle="tab">图片</a>
+                                            </li>
+                                            <li>
+                                                <a href="#panel-003" data-toggle="tab">表格</a>
+                                            </li>
+                                            <li>
+                                                <a href="#panel-004" data-toggle="tab">短期</a>
+                                            </li>
+                                            <li>
+                                                <a href="#panel-005" data-toggle="tab">十天</a>
+                                            </li>
+                                            <li>
+                                                <a href="#panel-006" data-toggle="tab">防御指南</a>
+                                            </li>
+                                            <li>
+                                                <a href="#panel-007" data-toggle="tab">呈送发</a>
+                                            </li>
+
+                                        </ul>
+                                        <div class="tab-content" style="display:block;width: 100%; height: 100%;">
+                                            <div class="tab-pane active" id="panel-001"
+                                                style="width:100%;height:99%;background-color:rgb(240, 140, 9)">
+
+                                                <!-- 大标题 -->
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 68%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <h4 style="display: inline-block;width:10%;height: 100% ;">主标题</h5>
+                                                        <input id="title_main" type="text"
+                                                            style="display: inline-block;width:88%;height: 100% ;">
+                                                </div>
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 10%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <select id = "wordposition_main" class="form-control">
+                                                        <option value="居中">居中</option>
+                                                        <option value="居左">居左</option>
+                                                    </select>
+                                                </div>
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 10%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <select id= "wordsize_main" class="form-control">
+                                                        <option value="四号">四号</option>
+                                                        <option value="五号">五号</option>
+                                                    </select>
+                                                </div>
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 10%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <select id = "wordthinks_main" class="form-control">
+                                                        <option value="加粗">加粗</option>
+                                                        <option value="斜体">斜体</option>
+                                                    </select>
+                                                </div>
+                                                <!-- 小标题 -->
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 68%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <h4 style="display: inline-block;width:10%;height: 100% ;">副标题</h5>
+                                                        <input id= "title_sub" type="text"
+                                                            style="display: inline-block;width:88%;height: 100% ;">
+                                                </div>
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 10%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <select id="wordposition_sub" class="form-control">
+                                                        <option value="居中">居中</option>
+                                                        <option value="居左">居左</option>
+                                                    </select>
+                                                </div>
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 10%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <select id="wordsize_sub" class="form-control">
+                                                        <option value="四号">四号</option>
+                                                        <option value="五号">五号</option>
+                                                    </select>
+                                                </div>
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 10%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <select id ="wordthinks_sub" class="form-control">
+                                                        <option value="四号">加粗</option>
+                                                        <option value="五号">斜体</option>
+                                                    </select>
+                                                </div>
+                                                <!-- 文字主体 -->
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 100%; height: 58%;border: 3px solid rgb(32, 32, 32);">
+                                                    <textarea style="width: 100%; height: 100%; resize:none;" id="text_main">
+
+                                                    </textarea>
+
+                                                </div>
+                                                <!-- 添加删除 -->
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 100%; height: 10%;border: 3px solid rgb(32, 32, 32);">
+                                                    <input type="button" id="add_text" value="添加"
+                                                        style="width:10%;height:100%;float:right ">
+                                                    <input type="button" id="del_text" value="删除"
+                                                        style="width:10%;height:100%;float:right ">
+
+                                                </div>
+
+
+                                            </div>
+                                            <!-- 图片模块 -->
+                                            <div class="tab-pane" id="panel-002"
+                                                style="width:100%;height:100%;background-color:rgb(240, 140, 9)">
+
+                                                <div
+                                                    style="display: inline-block;background-color:rgb(183, 231, 9); width: 100%; height: 10%;border: 3px solid rgb(192, 27, 27);">
+                                                    单图：<input type="radio" name="png_chose" style="width: 10%;"
+                                                        value="one"> 双图：<input type="radio" name="png_chose"
+                                                        style="width: 10%;" value="two">四图：<input type="radio"
+                                                        name="png_chose" style="width: 10%;" value="four">
+
+                                                </div>
+                                                <!-- 图片触发时间 -->
+                                                <div id="png_view_one"
+                                                    style="display:none;background-color:rgb(9, 231, 176); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+                                                    <!-- 单个图片 -->
+                                                    <div style="background-color:rgb(12, 118, 218); width: 100%; height: 83%;border: 3px solid rgb(192, 27, 27);padding:5% 20% 5% 20%;">
+
+                                                        <div id="png_one_show" style="background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <div id="png_one_hidden" style="display:none;background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <!-- 标题和粘贴 -->
+                                                        <div style="background-color:rgb(133, 115, 101); width: 100%; height: 10%;border: 3px solid rgb(192, 27, 27);">
+                                                            <input type="text" placeholder="图题:" style="width: 70%; height:100%"><input id= "png_one_input" type="text" placeholder="请将图片粘贴于此" style="width: 30%; height:100%"> 
+
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            (function () {
+                                                                var imgReader = function (item) {
+                                                                    var blob = item.getAsFile(),
+                                                                        reader = new FileReader();
+                                                    
+                                                                    reader.onload = function (e) {
+                                                                        var png_num =   $("#png_one_show").children().length;
+                                                                        var img = new Image();
+                                                                        var img_post = new Image();
+                                                                        // img.id = "png"
+                                                                        
+                                                                        // 图片的属性
+                                                                        img.style.width = "100%"
+                                                                        img.style.height = "100%"
+                                                                        
+                                                                        // 控制图片数量
+                                                                        img_post.src = e.target.result
+                                                                        img.src = e.target.result;
+                                                                        // w = document.getElementById("png")[0].naturalWidth; 
+                                                                        // w = 6
+                                                                        // console.log("图片大小",w)
+                                                                        if (png_num==0){
+                                                                            $("#png_one_show").append(img);
+                                                                            $("#png_one_hidden").append(img_post)
+                                                                            
+                                                    
+                                                                        }
+                                                                        else if(png_num==1){
+                                                                            $("#png_one_show").html(" ")
+                                                                            $("#png_one_show").append(img)
+                                                                            $("#png_one_hidden").html(" ")
+                                                                            $("#png_one_hidden").append(img_post)
+                                                                            
+                                                                            
+                                                    
+                                                                        }
+                                                                        // document.body.appendChild(img);
+                                                                    };
+                                                    
+                                                                    reader.readAsDataURL(blob);
+                                                                };
+                                                                document.getElementById('png_one_input').addEventListener('paste', function (e) {
+                                                                    var clipboardData = e.clipboardData,
+                                                                        i = 0,
+                                                                        items, item, types;
+                                                    
+                                                                    if (clipboardData) {
+                                                                        items = clipboardData.items;
+                                                    
+                                                                        if (!items) {
+                                                                            return;
+                                                                        }
+                                                    
+                                                                        item = items[0];
+                                                                        types = clipboardData.types || [];
+                                                    
+                                                                        for (; i < types.length; i++) {
+                                                                            if (types[i] === 'Files') {
+                                                                                item = items[i];
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                    
+                                                                        if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                                                                            imgReader(item);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            })();  
+                                                        </script>
+                                                        
+                                                    
+                                                    </div>
+                                                    <!-- 提交按钮 -->
+                                                    <div style="background-color:rgb(218, 88, 12); width: 100%; height: 10%;border: 3px solid rgb(192, 27, 27);">
+                                                        <input type="button" value="删除" style="float:right"><input type="button" value="添加" style="float:right">
+
+                                                    </div>
+                          
+
+
+                                                </div>
+                                                <div id="png_view_two"
+                                                    style="display: none;text-align:center;background-color:rgb(72, 211, 8); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+                                                    <!-- 双图 -->
+                                                    <div  style="display:inline-block;background-color: rgb(235, 19, 19);width:49%;height:80%;border: 3px solid rgb(192, 27, 27);">
+                                                        <div id = "png_two_show_1st" style="background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <div id = "png_two_hidden_1st" style=" display: none;background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <!-- 标题和粘贴 -->
+                                                        <div style="background-color:rgb(133, 115, 101); width: 100%; height: 10%;border: 3px solid rgb(192, 27, 27);">
+                                                            <input type="text" placeholder="图题:" style="width: 70%; height:100%"><input id = "png_two_input_1st" type="text" placeholder="请将图片粘贴于此" style="width: 30%; height:100%"> 
+
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            (function () {
+                                                                var imgReader = function (item) {
+                                                                    var blob = item.getAsFile(),
+                                                                        reader = new FileReader();
+                                                    
+                                                                    reader.onload = function (e) {
+                                                                        var png_num =   $("#png_two_show_1st").children().length;
+                                                                        var img = new Image();
+                                                                        var img_post = new Image();
+                                                                        // img.id = "png"
+                                                                        
+                                                                        // 图片的属性
+                                                                        img.style.width = "100%"
+                                                                        img.style.height = "100%"
+                                                                        
+                                                                        // 控制图片数量
+                                                                        img_post.src = e.target.result
+                                                                        img.src = e.target.result;
+                                                                        // w = document.getElementById("png")[0].naturalWidth; 
+                                                                        // w = 6
+                                                                        // console.log("图片大小",w)
+                                                                        if (png_num==0){
+                                                                            $("#png_two_show_1st").append(img);
+                                                                            $("#png_two_hidden_1st").append(img_post)
+                                                                            
+                                                    
+                                                                        }
+                                                                        else if(png_num==1){
+                                                                            $("#png_two_show_1st").html(" ")
+                                                                            $("#png_two_show_1st").append(img)
+                                                                            $("#png_two_hidden_1st").html(" ")
+                                                                            $("#png_two_hidden_1st").append(img_post)
+                                                                            
+                                                                            
+                                                    
+                                                                        }
+                                                                        // document.body.appendChild(img);
+                                                                    };
+                                                    
+                                                                    reader.readAsDataURL(blob);
+                                                                };
+                                                                document.getElementById('png_two_input_1st').addEventListener('paste', function (e) {
+                                                                    var clipboardData = e.clipboardData,
+                                                                        i = 0,
+                                                                        items, item, types;
+                                                    
+                                                                    if (clipboardData) {
+                                                                        items = clipboardData.items;
+                                                    
+                                                                        if (!items) {
+                                                                            return;
+                                                                        }
+                                                    
+                                                                        item = items[0];
+                                                                        types = clipboardData.types || [];
+                                                    
+                                                                        for (; i < types.length; i++) {
+                                                                            if (types[i] === 'Files') {
+                                                                                item = items[i];
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                    
+                                                                        if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                                                                            imgReader(item);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            })();  
+                                                        </script>
+
+                                                    </div>
+                                                    <div style="display:inline-block;background-color: rgb(24, 20, 20);width:49%;height:80%;border: 3px solid rgb(192, 27, 27);">
+                                                        <div id ="png_two_show_2st" style="background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <div id ="png_two_hidden_2st" style="display:none;background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <!-- 标题和粘贴 -->
+                                                        <div style="background-color:rgb(133, 115, 101); width: 100%; height: 10%;border: 3px solid rgb(192, 27, 27);">
+                                                            <input type="text" placeholder="图题:" style="width: 70%; height:100%"><input id="png_two_input_2st" type="text" placeholder="请将图片粘贴于此" style="width: 30%; height:100%"> 
+
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            (function () {
+                                                                var imgReader = function (item) {
+                                                                    var blob = item.getAsFile(),
+                                                                        reader = new FileReader();
+                                                    
+                                                                    reader.onload = function (e) {
+                                                                        var png_num =   $("#png_two_show_2st").children().length;
+                                                                        var img = new Image();
+                                                                        var img_post = new Image();
+                                                                        // img.id = "png"
+                                                                        
+                                                                        // 图片的属性
+                                                                        img.style.width = "100%"
+                                                                        img.style.height = "100%"
+                                                                        
+                                                                        // 控制图片数量
+                                                                        img_post.src = e.target.result
+                                                                        img.src = e.target.result;
+                                                                        // w = document.getElementById("png")[0].naturalWidth; 
+                                                                        // w = 6
+                                                                        // console.log("图片大小",w)
+                                                                        if (png_num==0){
+                                                                            $("#png_two_show_2st").append(img);
+                                                                            $("#png_two_hidden_2st").append(img_post)
+                                                                            
+                                                    
+                                                                        }
+                                                                        else if(png_num==1){
+                                                                            $("#png_two_show_2st").html(" ")
+                                                                            $("#png_two_show_2st").append(img)
+                                                                            $("#png_two_hidden_2st").html(" ")
+                                                                            $("#png_two_hidden_2st").append(img_post)
+                                                                            
+                                                                            
+                                                    
+                                                                        }
+                                                                        // document.body.appendChild(img);
+                                                                    };
+                                                    
+                                                                    reader.readAsDataURL(blob);
+                                                                };
+                                                                document.getElementById('png_two_input_2st').addEventListener('paste', function (e) {
+                                                                    var clipboardData = e.clipboardData,
+                                                                        i = 0,
+                                                                        items, item, types;
+                                                    
+                                                                    if (clipboardData) {
+                                                                        items = clipboardData.items;
+                                                    
+                                                                        if (!items) {
+                                                                            return;
+                                                                        }
+                                                    
+                                                                        item = items[0];
+                                                                        types = clipboardData.types || [];
+                                                    
+                                                                        for (; i < types.length; i++) {
+                                                                            if (types[i] === 'Files') {
+                                                                                item = items[i];
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                    
+                                                                        if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                                                                            imgReader(item);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            })();  
+                                                        </script>
+
+                                                    </div>
+                                                    <div style="background-color:rgb(218, 88, 12); width: 100%; height: 10%;border: 3px solid rgb(192, 27, 27);">
+                                                        <input type="button" value="删除" style="float:right"><input type="button" value="添加" style="float:right">
+
+
+                                                    </div>
+                                                  
+
+
+                                                </div>
+                                                <div id="png_view_four"
+                                                    style="display: none;background-color:rgb(224, 9, 231); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+                                                    <div  style="display:inline-block;background-color: rgb(235, 19, 19);width:49%;height:40%;border: 3px solid rgb(192, 27, 27);">
+                                                        <div id = "png_four_show_1st" style="background-color:rgb(221, 38, 14); width: 100%; height: 80%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <div id = "png_four_hidden_1st" style=" display: none;background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <!-- 标题和粘贴 -->
+                                                        <div style="background-color:rgb(133, 115, 101); width: 100%; height: 15%;border: 3px solid rgb(192, 27, 27);">
+                                                            <input type="text" placeholder="图题:" style="width: 70%; height:100%"><input id = "png_four_input_1st" type="text" placeholder="请将图片粘贴于此" style="width: 30%; height:100%"> 
+
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            (function () {
+                                                                var imgReader = function (item) {
+                                                                    var blob = item.getAsFile(),
+                                                                        reader = new FileReader();
+                                                    
+                                                                    reader.onload = function (e) {
+                                                                        var png_num =   $("#png_four_show_1st").children().length;
+                                                                        var img = new Image();
+                                                                        var img_post = new Image();
+                                                                        // img.id = "png"
+                                                                        
+                                                                        // 图片的属性
+                                                                        img.style.width = "100%"
+                                                                        img.style.height = "100%"
+                                                                        
+                                                                        // 控制图片数量
+                                                                        img_post.src = e.target.result
+                                                                        img.src = e.target.result;
+                                                                        // w = document.getElementById("png")[0].naturalWidth; 
+                                                                        // w = 6
+                                                                        // console.log("图片大小",w)
+                                                                        if (png_num==0){
+                                                                            $("#png_four_show_1st").append(img);
+                                                                            $("#png_four_hidden_1st").append(img_post)
+                                                                            
+                                                    
+                                                                        }
+                                                                        else if(png_num==1){
+                                                                            $("#png_four_show_1st").html(" ")
+                                                                            $("#png_four_show_1st").append(img)
+                                                                            $("#png_four_hidden_1st").html(" ")
+                                                                            $("#png_four_hidden_1st").append(img_post)
+                                                                            
+                                                                            
+                                                    
+                                                                        }
+                                                                        // document.body.appendChild(img);
+                                                                    };
+                                                    
+                                                                    reader.readAsDataURL(blob);
+                                                                };
+                                                                document.getElementById('png_four_input_1st').addEventListener('paste', function (e) {
+                                                                    var clipboardData = e.clipboardData,
+                                                                        i = 0,
+                                                                        items, item, types;
+                                                    
+                                                                    if (clipboardData) {
+                                                                        items = clipboardData.items;
+                                                    
+                                                                        if (!items) {
+                                                                            return;
+                                                                        }
+                                                    
+                                                                        item = items[0];
+                                                                        types = clipboardData.types || [];
+                                                    
+                                                                        for (; i < types.length; i++) {
+                                                                            if (types[i] === 'Files') {
+                                                                                item = items[i];
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                    
+                                                                        if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                                                                            imgReader(item);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            })();  
+                                                        </script>
+
+                                                    </div>
+                                                    <div  style="display:inline-block;background-color: rgb(235, 19, 19);width:49%;height:40%;border: 3px solid rgb(192, 27, 27);">
+                                                        <div id = "png_four_show_2st" style="background-color:rgb(221, 38, 14); width: 100%; height: 80%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <div id = "png_four_hidden_2st" style=" display: none;background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <!-- 标题和粘贴 -->
+                                                        <div style="background-color:rgb(133, 115, 101); width: 100%; height: 15%;border: 3px solid rgb(192, 27, 27);">
+                                                            <input type="text" placeholder="图题:" style="width: 70%; height:100%"><input id = "png_four_input_2st" type="text" placeholder="请将图片粘贴于此" style="width: 30%; height:100%"> 
+
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            (function () {
+                                                                var imgReader = function (item) {
+                                                                    var blob = item.getAsFile(),
+                                                                        reader = new FileReader();
+                                                    
+                                                                    reader.onload = function (e) {
+                                                                        var png_num =   $("#png_four_show_2st").children().length;
+                                                                        var img = new Image();
+                                                                        var img_post = new Image();
+                                                                        // img.id = "png"
+                                                                        
+                                                                        // 图片的属性
+                                                                        img.style.width = "100%"
+                                                                        img.style.height = "100%"
+                                                                        
+                                                                        // 控制图片数量
+                                                                        img_post.src = e.target.result
+                                                                        img.src = e.target.result;
+                                                                        // w = document.getElementById("png")[0].naturalWidth; 
+                                                                        // w = 6
+                                                                        // console.log("图片大小",w)
+                                                                        if (png_num==0){
+                                                                            $("#png_four_show_2st").append(img);
+                                                                            $("#png_four_hidden_2st").append(img_post)
+                                                                            
+                                                    
+                                                                        }
+                                                                        else if(png_num==1){
+                                                                            $("#png_four_show_2st").html(" ")
+                                                                            $("#png_four_show_2st").append(img)
+                                                                            $("#png_four_hidden_2st").html(" ")
+                                                                            $("#png_four_hidden_2st").append(img_post)
+                                                                            
+                                                                            
+                                                    
+                                                                        }
+                                                                        // document.body.appendChild(img);
+                                                                    };
+                                                    
+                                                                    reader.readAsDataURL(blob);
+                                                                };
+                                                                document.getElementById('png_four_input_2st').addEventListener('paste', function (e) {
+                                                                    var clipboardData = e.clipboardData,
+                                                                        i = 0,
+                                                                        items, item, types;
+                                                    
+                                                                    if (clipboardData) {
+                                                                        items = clipboardData.items;
+                                                    
+                                                                        if (!items) {
+                                                                            return;
+                                                                        }
+                                                    
+                                                                        item = items[0];
+                                                                        types = clipboardData.types || [];
+                                                    
+                                                                        for (; i < types.length; i++) {
+                                                                            if (types[i] === 'Files') {
+                                                                                item = items[i];
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                    
+                                                                        if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                                                                            imgReader(item);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            })();  
+                                                        </script>
+
+                                                    </div>
+                                                    <div  style="display:inline-block;background-color: rgb(235, 19, 19);width:49%;height:40%;border: 3px solid rgb(192, 27, 27);">
+                                                        <div id = "png_four_show_3st" style="background-color:rgb(221, 38, 14); width: 100%; height: 80%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <div id = "png_four_hidden_3st" style=" display: none;background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <!-- 标题和粘贴 -->
+                                                        <div style="background-color:rgb(133, 115, 101); width: 100%; height: 15%;border: 3px solid rgb(192, 27, 27);">
+                                                            <input type="text" placeholder="图题:" style="width: 70%; height:100%"><input id = "png_four_input_3st" type="text" placeholder="请将图片粘贴于此" style="width: 30%; height:100%"> 
+
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            (function () {
+                                                                var imgReader = function (item) {
+                                                                    var blob = item.getAsFile(),
+                                                                        reader = new FileReader();
+                                                    
+                                                                    reader.onload = function (e) {
+                                                                        var png_num =   $("#png_four_show_3st").children().length;
+                                                                        var img = new Image();
+                                                                        var img_post = new Image();
+                                                                        // img.id = "png"
+                                                                        
+                                                                        // 图片的属性
+                                                                        img.style.width = "100%"
+                                                                        img.style.height = "100%"
+                                                                        
+                                                                        // 控制图片数量
+                                                                        img_post.src = e.target.result
+                                                                        img.src = e.target.result;
+                                                                        // w = document.getElementById("png")[0].naturalWidth; 
+                                                                        // w = 6
+                                                                        // console.log("图片大小",w)
+                                                                        if (png_num==0){
+                                                                            $("#png_four_show_3st").append(img);
+                                                                            $("#png_four_hidden_3st").append(img_post)
+                                                                            
+                                                    
+                                                                        }
+                                                                        else if(png_num==1){
+                                                                            $("#png_four_show_3st").html(" ")
+                                                                            $("#png_four_show_3st").append(img)
+                                                                            $("#png_four_hidden_3st").html(" ")
+                                                                            $("#png_four_hidden_3st").append(img_post)
+                                                                            
+                                                                            
+                                                    
+                                                                        }
+                                                                        // document.body.appendChild(img);
+                                                                    };
+                                                    
+                                                                    reader.readAsDataURL(blob);
+                                                                };
+                                                                document.getElementById('png_four_input_3st').addEventListener('paste', function (e) {
+                                                                    var clipboardData = e.clipboardData,
+                                                                        i = 0,
+                                                                        items, item, types;
+                                                    
+                                                                    if (clipboardData) {
+                                                                        items = clipboardData.items;
+                                                    
+                                                                        if (!items) {
+                                                                            return;
+                                                                        }
+                                                    
+                                                                        item = items[0];
+                                                                        types = clipboardData.types || [];
+                                                    
+                                                                        for (; i < types.length; i++) {
+                                                                            if (types[i] === 'Files') {
+                                                                                item = items[i];
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                    
+                                                                        if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                                                                            imgReader(item);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            })();  
+                                                        </script>
+
+                                                    </div>
+                                                    <div  style="display:inline-block;background-color: rgb(235, 19, 19);width:49%;height:40%;border: 3px solid rgb(192, 27, 27);">
+                                                        <div id = "png_four_show_4st" style="background-color:rgb(221, 38, 14); width: 100%; height: 80%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <div id = "png_four_hidden_4st" style=" display: none;background-color:rgb(221, 38, 14); width: 100%; height: 90%;border: 3px solid rgb(192, 27, 27);">
+
+                                                        </div>
+                                                        <!-- 标题和粘贴 -->
+                                                        <div style="background-color:rgb(133, 115, 101); width: 100%; height: 15%;border: 3px solid rgb(192, 27, 27);">
+                                                            <input type="text" placeholder="图题:" style="width: 70%; height:100%"><input id = "png_four_input_4st" type="text" placeholder="请将图片粘贴于此" style="width: 30%; height:100%"> 
+
+                                                        </div>
+                                                        <script type="text/javascript">
+                                                            (function () {
+                                                                var imgReader = function (item) {
+                                                                    var blob = item.getAsFile(),
+                                                                        reader = new FileReader();
+                                                    
+                                                                    reader.onload = function (e) {
+                                                                        var png_num =   $("#png_four_show_4st").children().length;
+                                                                        var img = new Image();
+                                                                        var img_post = new Image();
+                                                                        // img.id = "png"
+                                                                        
+                                                                        // 图片的属性
+                                                                        img.style.width = "100%"
+                                                                        img.style.height = "100%"
+                                                                        
+                                                                        // 控制图片数量
+                                                                        img_post.src = e.target.result
+                                                                        img.src = e.target.result;
+                                                                        // w = document.getElementById("png")[0].naturalWidth; 
+                                                                        // w = 6
+                                                                        // console.log("图片大小",w)
+                                                                        if (png_num==0){
+                                                                            $("#png_four_show_4st").append(img);
+                                                                            $("#png_four_hidden_4st").append(img_post)
+                                                                            
+                                                    
+                                                                        }
+                                                                        else if(png_num==1){
+                                                                            $("#png_four_show_4st").html(" ")
+                                                                            $("#png_four_show_4st").append(img)
+                                                                            $("#png_four_hidden_4st").html(" ")
+                                                                            $("#png_four_hidden_4st").append(img_post)
+                                                                            
+                                                                            
+                                                    
+                                                                        }
+                                                                        // document.body.appendChild(img);
+                                                                    };
+                                                    
+                                                                    reader.readAsDataURL(blob);
+                                                                };
+                                                                document.getElementById('png_four_input_4st').addEventListener('paste', function (e) {
+                                                                    var clipboardData = e.clipboardData,
+                                                                        i = 0,
+                                                                        items, item, types;
+                                                    
+                                                                    if (clipboardData) {
+                                                                        items = clipboardData.items;
+                                                    
+                                                                        if (!items) {
+                                                                            return;
+                                                                        }
+                                                    
+                                                                        item = items[0];
+                                                                        types = clipboardData.types || [];
+                                                    
+                                                                        for (; i < types.length; i++) {
+                                                                            if (types[i] === 'Files') {
+                                                                                item = items[i];
+                                                                                break;
+                                                                            }
+                                                                        }
+                                                    
+                                                                        if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                                                                            imgReader(item);
+                                                                        }
+                                                                    }
+                                                                });
+                                                            })();  
+                                                        </script>
+
+                                                    </div>
+                                                    <div style="background-color:rgb(218, 88, 12); width: 100%; height: 10%;border: 3px solid rgb(192, 27, 27);">
+                                                        <input type="button" value="删除" style="float:right"><input type="button" value="添加" style="float:right">
+
+
+                                                    </div>
+                                                    
+
+
+                                                </div>
+                                                <script>
+                                                    $(document).ready(function () {
+                                                        $('input[type=radio][name=png_chose]').change(function () {
+                                                            if (this.value == 'one') {
+                                                                console.log("one");
+                                                                var div_view_one = document.getElementById('png_view_one')
+                                                                var div_view_two = document.getElementById('png_view_two')
+                                                                var div_view_four = document.getElementById('png_view_four')
+                                                                div_view_one.style.display = 'block'
+                                                                div_view_two.style.display = 'none'
+                                                                div_view_four.style.display = 'none'
+                                                            }
+                                                            else if (this.value == 'two') {
+                                                                console.log("two");
+                                                                var div_view_one = document.getElementById('png_view_one')
+                                                                var div_view_two = document.getElementById('png_view_two')
+                                                                var div_view_four = document.getElementById('png_view_four')
+                                                                div_view_one.style.display = 'none'
+                                                                div_view_two.style.display = 'block'
+                                                                div_view_four.style.display = 'none'
+                                                            }
+                                                            else {
+                                                                console.log("four");
+                                                                var div_view_one = document.getElementById('png_view_one')
+                                                                var div_view_two = document.getElementById('png_view_two')
+                                                                var div_view_four = document.getElementById('png_view_four')
+                                                                div_view_one.style.display = 'none'
+                                                                div_view_two.style.display = 'none'
+                                                                div_view_four.style.display = 'block'
+                                                            }
+                                                        });
+                                                    });
+                                                </script>
+
+                                            </div>
+                                            <div class="tab-pane" id="panel-003"
+                                                style="width:100%;height:100%;background-color:rgb(240, 140, 9)">
+                                                <p>
+                                                    Howdy, I'm in Section 3.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 显示模块 -->
+                                <div id= "context_show_list"
+                                    style="background-color:rgb(21, 38, 192); width: 100%; height: 35%;overflow:auto;border: 3px solid rgb(58, 128, 0);">
+
+                                </div>
+                                <!-- 这里是显示列表的控制代码 -->
+                                <script>
+                                    // 全局变量
+                                    var html_all = ""
+                                    var id_div = 0
+                                    var list_data = [];
+                                    var list_div = [];
+                                    // 文档功能的添加删除功能
+                                    var add_Btn_text = document.getElementById('add_text');
+                                    var del_Btn_text = document.getElementById('del_text');
+                                    // 文档添加功能                     
+                                    add_Btn_text.onclick = function () {
+                                                if (id_div >= 0){
+                                                    id_div = id_div + 1
+
+                                                }
+                                                // id_div = id_div + 1
+                                                var html = document.getElementById('panel-001');
+                                                var text_main = document.getElementById('text_main').value;
+
+                                                var title_main = document.getElementById('title_main').value;
+                                                var font_pos_main = document.getElementById('wordposition_main').value;
+                                                var font_size_main = document.getElementById('wordsize_main').value;
+                                                var font_thins_main = document.getElementById('wordthinks_main').value;
+
+                                                var title_sub = document.getElementById('title_sub').value;
+                                                var font_pos_sub = document.getElementById('wordposition_sub').value;
+                                                var font_size_sub = document.getElementById('wordsize_sub').value;
+                                                var font_thins_sub = document.getElementById('wordthinks_sub').value;
+                                                
+                                                var data_add = {
+                                                    "type":"text",
+                                                    "id":id_div,
+                                                    "title_main":title_main,
+                                                    "title_sub":title_sub,
+                                                    "fontsize_main":[font_pos_main,font_size_main,font_thins_main], 
+                                                    "fontsize_sub":[font_pos_sub,font_size_sub,font_thins_sub], 
+
+                                                    "content":text_main
+                                                }
+                                                list_div.push(html)
+                                                list_data.push(data_add)
+                                                show(data_add)
+
+                                            };
+                                    del_Btn_text.onclick = function () {
+                                                if (id_div >0){
+                                                    id_div = id_div - 1
+                                                }
+                                                list_div.pop();
+                                                // console.log(list_div)
+                                                data_add = {
+                                                    "type":"del"                                                }
+
+                                                show(data_add)
+                                            };
+                                    
+                                    function show(data_add) {
+                                            $('#context_show_list').html('')
+                                            for (var i = 0; i < list_div.length; i++) {
+                                                console.log("执行show函数")
+                                                // 创建div
+                                                var div_list_item = document.createElement("div")
+                                                div_list_item.style.width="100%"
+                                                div_list_item.style.height="15%"
+                                                div_list_item.style.backgroundColor="white"
+                                                div_list_item.style.border = "3px solid black"
+                                                var type_add = data_add.type
+                                                var title_add = data_add.title_main
+                                                var h_5 = document.createElement("h5")
+                                                h_5.style.width = "80%"
+                                                h_5.style.height = "100%"
+                                                h_5.innerText = type_add + " : " + title_add
+                                                h_5.style.display = "inline-block"
+                                                // var button_add_br = document.createElement("button")
+                                                var button_add_br = document.createElement("a")
+                                                button_add_br.style.width="10%"
+                                                button_add_br.style.height = "100%"
+                                                
+                                                button_add_br.style.display = "inline-block"
+                                                button_add_br.innerText = "空格符"
+
+                                                // 添加遮罩栏
+                                                var a_button = document.createElement("a")
+                                                a_button.id = "modal-" + i.toString()
+                                                a_button.href = "#modal-container-" + i.toString()
+                                                a_button.text = "添加"
+                                                a_button.setAttribute("data-toggle", "modal")
+                                                a_button.setAttribute("role", "button")
+                                                a_button.setAttribute("class", "btn")
+                                                var div_modal = document.createElement("div")
+                                                div_modal.setAttribute("class", "modal fade")
+                                                div_modal.setAttribute("role", "dialog")
+                                                div_modal.id = "modal-container-" + i.toString()
+                                                div_modal.setAttribute("role", "dialog")
+                                                div_modal.setAttribute("aria-labelledby", "myModalLabel")
+                                                div_modal.setAttribute("aria-hidden", "true")
+
+
+
+                                                var div_dialog = document.createElement("div")
+                                                div_dialog.setAttribute("class", "modal-dialog")
+                                                div_modal.appendChild(div_dialog)
+
+                                                var div_content = document.createElement("div")
+                                                div_content.setAttribute("class", "modal-content")
+                                                div_dialog.appendChild(div_content)
+
+                                                var div_head = document.createElement("div")
+                                                div_head.setAttribute("class", "modal-header")
+
+                                                var button_head = document.createElement("button")
+                                                button_head.setAttribute("data-dismiss", "modal")
+                                                button_head.setAttribute("aria-hidden", "true")
+                                                button_head.setAttribute("class", "close")
+                                                button_head.setAttribute("type", "button")
+
+                                                var title_h4 = document.createElement("h4")
+                                                title_h4.setAttribute("class", "modal-title")
+                                                // title_h4.setAttribute("id","myModalLabel")
+                                                title_h4.innerText = "标题"
+                                                div_head.appendChild(button_head)
+                                                div_head.appendChild(title_h4)
+
+                                                // body
+                                                var div_body = document.createElement("div")
+                                                div_body.setAttribute("class", "modal-body")
+                                                // div_body.class = "modal-body"
+                                                // div_body.value = "内容"
+                                                div_body.innerText = "内容" + "我是内容" + i.toString()
+
+                                                // foot
+                                                var div_foot = document.createElement("div")
+                                                div_foot.setAttribute("class", "modal-footer")
+                                                // div_foot.calss = "modal-footer"
+
+                                                var button_foot_close = document.createElement("button")
+                                                button_foot_close.setAttribute("type", "button")
+                                                button_foot_close.setAttribute("class", "btn btn-default")
+                                                button_foot_close.setAttribute("data-dismiss", "modal")
+                                                // button_foot_close.value = "关闭"
+                                                button_foot_close.innerText = "关闭"
+
+                                                var button_foot_save = document.createElement("button")
+                                                button_foot_save.setAttribute("type", "button")
+                                                button_foot_save.setAttribute("class", "btn btn-primary")
+                                                button_foot_save.innerText = "保存"
+                                                // button_foot_save.type = "button"
+                                                // button_foot_save.class = "btn btn-primary"
+
+                                                div_foot.appendChild(button_foot_close)
+                                                div_foot.appendChild(button_foot_save)
+
+
+
+                                                div_content.appendChild(div_head)
+                                                div_content.appendChild(div_body)
+                                                div_content.appendChild(div_foot)
+
+
+                                                    // 遮罩栏目加载结束
+
+
+                                                div_list_item.appendChild(h_5)
+                                                div_list_item.appendChild(button_add_br)
+                                                div_list_item.appendChild(a_button)
+                                                div_list_item.appendChild(div_modal)
+
+
+                                                $('#context_show_list').append(div_list_item)
+
+
+
+                                            };
+
+                                        };
+                                    
+
+                                </script>
+
+                            </div>
+                            <!-- 文件预览 -->
+                            <div
+                                style="background-color:rgb(78, 9, 189); width: 100%; height: 6%;border: 3px solid rgb(58, 128, 0);">
+                                <input type="button" value="保存" style="width:10%;height:100%;float:right ">
+                                <input type="button" value="保存并预览" style="width:10%;height:100%;float:right ">
+                                <input type="button" value="保存版本" style="width:10%;height:100%;float:right ">
+                                <input type="button" value="下载" style="width:10%;height:100%;float:left ">
+                                <input type="button" value="清除" style="width:10%;height:100%;float:left ">
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+                        <div class="tab-pane" id="panel-2"
+                            style="width:100%;height:100%;background-color:rgb(8, 116, 167)">
+                            <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
+                                历史数据的展示
+
+                            </div>
+                            <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
+                                实况数据的展示
+
+                            </div>
+                            <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
+                                爬虫功能
+
+                            </div>
+                            <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
+                                web模式
+
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="panel-3"
+                            style="width:100%;height:100%;background-color:rgb(8, 116, 167)">
+                            <p>
+                                这是天气专报
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <!-- 预览界面 -->
+            <div
+                style="background-color:rgb(115, 24, 201); width: 50%; height: 100%;border: 3px solid rgb(58, 128, 0);overflow:auto">
+                <!-- <iframe src="https://www.baidu.com"></iframe> -->
+
+
+                <img src="src/week.png" style="width:100%"></img>
+                <img src="src/week.png" style="width:100%"></img>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
