@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <title></title>
+  </head>
+  
+  <body>
+    <div style="border: 20px solid rgb(238, 14, 14); ;background-color: rgb(228, 133, 18);width: 99%;height: 150px;">
+      <input id = "clom" placeholder="行" style="border: 1px solid rgb(238, 14, 14);width: 20%;height: 100%;font-size: 30px;">
+      <input id = "row" placeholder="列" style="border: 1px solid rgb(238, 14, 14);width: 20%;height: 100%;font-size: 30px">
+      <!-- <button style="border: 1px solid rgb(238, 14, 14);width: 20%;height: 50%;" value="创建">创建</button> -->
+      <input id = "union" type="button" value="合并" onclick="unino_two()" style="float:right;width: 20%;height: 100%;font-size: 30px">
+      <input id = "create" type="button" value="创建" onclick="create_new()" style="float:right;width: 20%;height: 100%;font-size: 30px">
+
+
+    </div>
+    <script>
+      
+      var create = document.getElementById("create")
+      var union = document.getElementById("union")
+
+      var check_list = []
+      function create_new(){
+        
+        var table_div = document.getElementById("table_show")
+        var clom = document.getElementById("clom")
+        var row = document.getElementById("row")
+        var clom_num = parseInt(clom.value)
+        var row_num = parseInt(row.value)
+        // var clom = 
+        console.log("获取行列：-->>>>",clom_num ,row_num )
+        table_div.innerHTML = " "
+        var table_main = document.createElement("table")
+        table_main.id = "table_main"
+        table_main.style.width = "800px"
+        table_main.style.height = "800px"
+        table_main.style.border = "2px solid black"
+        for (var i=0;i<clom_num;i++){
+          var tr_i = document.createElement("tr")
+          tr_i.id = i+1
+          table_main.appendChild(tr_i) 
+          console.log(i+1)
+          for (var j=0;j<row_num;j++) {
+            console.log(j+1)
+            var td_j = document.createElement("td")
+            var checkbox = document.createElement("input")
+            checkbox.type = "checkbox"
+            checkbox.name = "checkbox"
+            checkbox.id = (i+1).toString() + (j+1).toString()+"checkbox"
+            td_j.id = (i+1).toString() + (j+1).toString()
+            td_j.innerText = (i+1).toString() + (j+1).toString()
+            td_j.style.border = "2px solid black"
+            td_j.colSpan = "1"
+            td_j.rowSpan = "1"
+            td_j.appendChild(checkbox)
+            tr_i.appendChild(td_j)
+          }
+          
+
+
+          
+        }
+        table_div.appendChild(table_main)
+
+        
+
+      }
+      // function two_list(){
+      //   console.log("触发合并list")
+      // }
+      $("body").on("click","input[name='checkbox']",function(){
+        
+        if ($("input[name='checkbox']:checked").length > 2){
+                alert('提示信息', "最多选择两个");
+                return false;
+            }
+        if ($("input[name='checkbox']:checked")){
+          console.log($("input[name='checkbox']:checked").length,$("input[name='checkbox']:checked").attr("id"))
+
+        } 
+      });
+
+
+      function unino_two(){
+        console.log("合并行列")
+      }
+
+
+    </script>
+
+    <div id = "table_show" style="display:flex;border: 1px  ;background-color: rgb(196, 32, 211);width: 100%;height: 30%;text-align:center;padding: 5% 5% 10% 32%;">
+      <table border="2" bordercolor="black" width="800" height="800" cellspacing="0" cellpadding="5">
+        <tr id ="1">
+          <td id ="11" colspan="1" rowspan="1">1.1</td>
+          <td id ="12" colspan="1" rowspan="1">1.2</td>
+          <td id ="13" colspan="1" rowspan="1">1.3</td></tr>
+        <tr id ="2">
+          <td id ="21" colspan="1" rowspan="1">2.1</td>
+          <td id ="22" colspan="1" rowspan="1">2.2</td>
+          <td id ="23" colspan="1" rowspan="1">2.3</td></tr>
+        <tr id ="3">
+          <td id ="31" colspan="1" rowspan="1">3.1</td>
+          <td id ="32" colspan="1" rowspan="1">3.2</td>
+          <td id ="33" colspan="1" rowspan="1">3.3</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+ 
+</html>

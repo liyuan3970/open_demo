@@ -12,6 +12,12 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="js/jquery.datetimepicker.css" />
     <script src="js/jquery.datetimepicker.full.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="js/ecStat.min.js"></script>
+    <script type="text/javascript" src="js/dataTool.min.js"></script>
+    <script type="text/javascript" src="js/china.js"></script>
+    <script type="text/javascript" src="js/world.js"></script>
     <title>决策服务模板样式</title>
 
 </head>
@@ -30,8 +36,9 @@
                     <li>
                         <a href="#panel-2" data-toggle="tab">工具箱</a>
                     </li>
-                    <li>
-                        <a href="#panel-3" data-toggle="tab">帮助文档</a>
+                    <li style="float: right;">
+                        <!-- 另外添加一个说明文档 -->
+                        <a href="#panel-3" data-toggle="tab">配置</a>
                     </li>
                 </ul>
             </div>
@@ -205,9 +212,7 @@
                                                 <!-- 文字主体 -->
                                                 <div
                                                     style="display: inline-block;background-color:rgb(183, 231, 9); width: 100%; height: 58%;border: 3px solid rgb(32, 32, 32);">
-                                                    <textarea style="width: 100%; height: 100%; resize:none;" id="text_main">
-
-                                                    </textarea>
+                                                    <textarea style="width: 100%; height: 100%; resize:none;" id="text_main"></textarea>
 
                                                 </div>
                                                 <!-- 添加删除 -->
@@ -908,6 +913,152 @@
                                                     Howdy, I'm in Section 3.
                                                 </p>
                                             </div>
+                                            <div class="tab-pane" id="panel-004" style="width:100%;height:100%;background-color:rgb(240, 140, 9)">
+                                                <!-- <p>
+                                                    短期
+                                                </p> -->
+                                                <div class="panel panel-default" style="width:100%;height: 80% ;">
+                                                    <div class="panel-heading">
+                                                        <h2 class="panel-title" >
+                                                            短期预报：
+                                                        </h2>
+                                                    </div>
+                                                    <div class="panel-body" style="width:100%;height: 80% ;font-size:20px; color:rgb(14, 13, 13);">
+                                                        <textarea id="short_msg"  style="width: 100%; height: 100%; resize:none;"></textarea>
+                                                    </div>
+                                                    <script >
+                                                        var text_short = document.getElementById("short_msg")
+                                                        // console.log("短期内容")
+                                                        text_short.value="天气预报：\r今天、明天、后天请到多云.\r今天早晨最高气温：12~14度；\r今天早晨最高气温：12~14度；\r沿海海面：北到东北风5~6级阵风7级."
+                                                    </script>
+                                                    <div class="panel-footer" >
+                                                        <div style="display: table-cell;float:right;font-size:20px ;vertical-align:middle;color:black;">2022年5月12日16时30分</div>
+                                                    </div>
+                                                </div>
+                                                <div style="background-color:rgb(218, 88, 12); width: 100%; height: 20%;border: 3px solid rgb(192, 27, 27);">
+                                                    <input type="button" value="删除" style="float:right"><input type="button" value="添加" style="float:right">
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane" id="panel-005" style="width:100%;height:100%;background-color:rgb(240, 140, 9);overflow:auto">
+                                                <!-- <p>
+                                                    十天
+                                                </p> -->
+                                                <div class="panel panel-default" style="width:100%;height: 80% ;">
+                                                    <div class="panel-heading">
+                                                        <h2 class="panel-title" >
+                                                            一周天气：
+                                                        </h2>
+                                                    </div>
+                                                    <div class="panel-body" style="width:100%;height: 80% ;font-size:20px; color:rgb(14, 13, 13);">
+                                                        <textarea id="ten_msg"  style="width: 100%; height: 100%; resize:none;"></textarea>
+                                                    </div>
+                                                    <script >
+                                                        var text_ten = document.getElementById("ten_msg")
+                                                        // console.log("短期内容")
+                                                        text_ten.value="台州市主城区具体天气预报如下：\r14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度\r14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度\r14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度\r14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度\r14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度"
+                                                    </script>
+                                                    <div class="panel-footer" >
+                                                        <div style="display: table-cell;float:right;font-size:20px ;vertical-align:middle;color:black;">2022年5月12日16时30分</div>
+                                                    </div>
+                                                </div>
+                                                <div style="background-color:rgb(218, 88, 12); width: 100%; height: 20%;border: 3px solid rgb(192, 27, 27);">
+                                                    <input type="button" value="删除" style="float:right"><input type="button" value="添加" style="float:right">
+                                                </div>
+
+                                                
+                                            </div>
+
+                                            <div class="tab-pane" id="panel-006" style="width:100%;height:100%;background-color:rgb(240, 140, 9)">
+                                                <div class="list-group" style="width:100%;height:90%;">
+                                                    <a href="#" class="list-group-item active" style="width:100%;height:10%;">防御指南</a>
+                                                    <div id = "list_show" class="list-group-item" style="width:100%;height:80%;;overflow:auto;">
+                                                        <textarea style="width: 100%; height: 20%; resize:none;">14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度</textarea>
+                                                        <textarea style="width: 100%; height: 20%; resize:none;">14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度</textarea>
+                                                        <textarea style="width: 100%; height: 20%; resize:none;">14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度</textarea>
+                                                        <textarea style="width: 100%; height: 20%; resize:none;">14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度</textarea>
+                                                        <textarea style="width: 100%; height: 20%; resize:none;">14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度</textarea>
+                                                        <textarea style="width: 100%; height: 10%; resize:none;">14日(周一):多云到阴,午后因有阵雨或雷雨          24~32度</textarea>
+                                               
+                                                    </div>
+                                                    <a class="list-group-item active" style="width:100%;height:10%;"> <input id = "list_text_del" type="button" value="删除" style="float:right"><input id = "list_text_add" type="button" value="添加" style="float:right"></a>
+                                                </div>
+                                                <script>
+                                                    var list_show =document.getElementById("list_show")
+                                                    var list_text_del =document.getElementById("list_text_del")
+                                                    var list_text_add =document.getElementById("list_text_add")
+
+                                                    list_text_del.onclick = function () {
+                                                        console.log("删除列表")
+
+                                                        };
+                                                    list_text_add.onclick = function () {
+                                                        console.log("添加列表")
+
+                                                        };
+
+                                                    
+                                                </script>
+                                                <div style="background-color:rgb(218, 88, 12); width: 100%; height: 20%;border: 3px solid rgb(192, 27, 27);">
+                                                    <input type="button" value="删除" style="float:right"><input type="button" value="添加" style="float:right">
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane" id="panel-007" style="width:100%;height:100%;background-color:rgb(240, 140, 9)">
+                                                <!-- <p>
+                                                    呈送发
+                                                </p> -->
+                                                <div class="panel-group" id="panel-944300" style="background-color:rgb(218, 88, 12); width: 100%; height: 80%;border: 3px solid rgb(192, 27, 27);">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                             <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-944300" href="#panel-element-001">宣传二维码</a>
+                                                        </div>
+                                                        <div id="panel-element-001" class="panel-collapse collapse">
+                                                            <div class="panel-body">
+                                                                图片
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                             <a class="panel-title" data-toggle="collapse" data-parent="#panel-944300" href="#panel-element-002">呈</a>
+                                                        </div>
+                                                        <div id="panel-element-002" class="panel-collapse in">
+                                                            <div class="panel-body">
+                                                                呈:李跃期,孙中山,王晓,李跃期,孙中山,王晓,李跃期,孙中山,王晓,李跃期,孙中山,王晓
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                             <a class="panel-title" data-toggle="collapse" data-parent="#panel-944300" href="#panel-element-003">送</a>
+                                                        </div>
+                                                        <div id="panel-element-003" class="panel-collapse in">
+                                                            <div class="panel-body">
+                                                                抄送:李跃期,孙中山,王晓,李跃期,孙中山,王晓,李跃期,孙中山,王晓,李跃期,孙中山,王晓
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                             <a class="panel-title" data-toggle="collapse" data-parent="#panel-944300" href="#panel-element-004">发</a>
+                                                        </div>
+                                                        <div id="panel-element-004" class="panel-collapse in">
+                                                            <div class="panel-body" >
+                                                                单位:李跃期,孙中山,王晓,李跃期,孙中山,王晓,李跃期,孙中山,王晓,李跃期,孙中山,王晓
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div style="background-color:rgb(218, 88, 12); width: 100%; height: 20%;border: 3px solid rgb(192, 27, 27);">
+                                                    <input type="button" value="删除" style="float:right"><input type="button" value="添加" style="float:right">
+                                                </div>
+
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -1117,15 +1268,52 @@
                         <div class="tab-pane" id="panel-2"
                             style="width:100%;height:100%;background-color:rgb(8, 116, 167)">
                             <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
-                                历史数据的展示
+                                <div style="display: inline-block ;width:100%;height:15%;background-color:rgb;vertical-align:middle;font-size: 25px;">
+                                    <label>精细化站点预报</label>
+                                </div>
+                                <div style="display: inline-block ;width:100%;height:25%;background-color:rgb;vertical-align:middle;font-size: 25px;">
+                                    <h3 style="display: inline-block ;width:15% ;">数据源：</h3> 
+                                    EC数据: <input type="radio" name="check_data_source" style="width: 5%;height:50%;">
+                                    智能网格: <input type="radio" name="check_data_source" style="width: 5%;height:50%;" >
+                                    市台订正: <input type="radio" name="check_data_source" style="width: 5%;height:50%;">
+                                   
+                                </div>
+                                
+                                <div style="display: inline-block ;width:100%;height:25%;background-color:rgb;vertical-align:middle;font-size: 25px;">
+                                    站点模式：<input type="radio" name = "check_data_way" style="width: 5%;height:50%;">
+                                    <input placeholder="初始时间" id="datetimepicker_check_data_way_start" type="text" style="width: 35%;height:80% ; ">
+                                    <input placeholder="终止时间" id="datetimepicker_check_data_way_end" type="text" style="width: 35%;height:80% ; ">        
+                                </div>
+                                <script>
+                                    $('#datetimepicker_check_data_way_start').datetimepicker(
+                                        {
+                                            theme: 'dark',
+                                            format: 'Y-m-d H:i'
+                                        }
+                                    );
+                                </script>
+                                <script>
+                                    $('#datetimepicker_check_data_way_end').datetimepicker(
+                                        {
+                                            theme: 'dark',
+                                            format: 'Y-m-d H:i'
+                                        }
+                                    );
+                                </script>
+                                <div style="display: inline-block ;width:100%;height:25%;background-color:rgb;vertical-align:middle;font-size: 25px;">
+                                    经纬度模式：<input type="radio" name = "check_data_way" style="width: 5%;height:50%;">
+                                    <input type="text" placeholder="经度" style="width: 20%;height:80%;"><input type="text" placeholder="纬度" style="width: 20%;height:80%;">
+                                    <input type="button" value="查询" style="float: right ;">
+                                </div>
+                                
 
                             </div>
                             <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
-                                实况数据的展示
+                                绘图模块
 
                             </div>
                             <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
-                                爬虫功能
+                                历史数据的统计
 
                             </div>
                             <div style="width:100%;height:25%;background-color:rgb ;border: 3px solid black;">
@@ -1137,7 +1325,7 @@
                         <div class="tab-pane" id="panel-3"
                             style="width:100%;height:100%;background-color:rgb(8, 116, 167)">
                             <p>
-                                这是天气专报
+                                配置及自定义模块
                             </p>
                         </div>
                     </div>
@@ -1155,14 +1343,867 @@
             <!-- 预览界面 -->
             <div
                 style="background-color:rgb(115, 24, 201); width: 50%; height: 100%;border: 3px solid rgb(58, 128, 0);overflow:auto">
-                <!-- <iframe src="https://www.baidu.com"></iframe> -->
+                
+            
+                <!-- 预览图片 -->
+                <!-- <img src="src/week.png" style="width:100%"></img>
+                <img src="src/week.png" style="width:100%"></img> -->
+            
+                <!-- 精细化站点预报服务 -->
+                <div
+                    style="background-color:rgb(115, 24, 201); width: 100%; height: 100%;border: 3px solid rgb(58, 128, 0);overflow:auto">
+                    <div id="map_tool1" style=" display: inline-flex;width: 60%; height: 45%;border: 3px solid rgb(58, 128, 0)">
 
+                    </div>
+                    <script src='js/map_tool1.js'></script>
+                    <div style=" width: 40%; height: 45%;border: 3px solid rgb(58, 128, 0);float: right;">
 
-                <img src="src/week.png" style="width:100%"></img>
-                <img src="src/week.png" style="width:100%"></img>
+                    </div>
+                    <div style=" width: 100%; height: 62%;border: 3px solid rgb(58, 128, 0);float: right;">
+                        <div class="tabbable" id="tabs-439149">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                     <a href="#panel-727742" data-toggle="tab">数据表格</a>
+                                </li>
+                                <li>
+                                     <a href="#panel-578432" data-toggle="tab">时序图</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="panel-727742">
+                                    <p>
+                                        I'm in Section 1.
+                                    </p>
+                                    <table class="table table-bordered table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    时间
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    要素0
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    要素1
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    高温
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    低温
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    湿度
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    风向
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    风速
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    能见度
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    云量
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                                <th>
+                                                    21
+                                                </th>
+                                                <th>
+                                                    22
+                                                </th>
+                                                <th>
+                                                    23
+                                                </th>
+                                                <th>
+                                                    00
+                                                </th>
+                                                <th>
+                                                    01
+                                                </th>
+                                                <th>
+                                                    02
+                                                </th>
+                                                <th>
+                                                    03
+                                                </th>
+                                                <th>
+                                                    04
+                                                </th>
+                                                <th>
+                                                    05
+                                                </th>
+                                                <th>
+                                                    06
+                                                </th>
+                                                <th>
+                                                    07
+                                                </th>
+                                                <th>
+                                                    08
+                                                </th>
+                                                <th>
+                                                    09
+                                                </th>
+                                                <th>
+                                                    10
+                                                </th>
+                                                <th>
+                                                    11
+                                                </th>
+                                                <th>
+                                                    12
+                                                </th>
+                                                <th>
+                                                    13
+                                                </th>
+                                                <th>
+                                                    14
+                                                </th>
+                                                <th>
+                                                    15
+                                                </th>
+                                                <th>
+                                                    16
+                                                </th>
+                                                <th>
+                                                    17
+                                                </th>
+                                                <th>
+                                                    18
+                                                </th>
+                                                <th>
+                                                    19
+                                                </th>
+                                                <th>
+                                                    20
+                                                </th>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="panel-578432">
+                                    <p>
+                                        Howdy, I'm in Section 2.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
 
+            
+            
+            
+            
+            
+            
+                </div>
+            
+            
             </div>
+            
         </div>
     </div>
 
