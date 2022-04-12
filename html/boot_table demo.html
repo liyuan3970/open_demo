@@ -21,8 +21,11 @@
       
       var create = document.getElementById("create")
       var union = document.getElementById("union")
-
-      var check_list = []
+      var table_new = document.createElement("table")
+      
+      
+      var chose_list = []  
+      // var check_list = []
       function create_new(){
         
         var table_div = document.getElementById("table_show")
@@ -30,9 +33,11 @@
         var row = document.getElementById("row")
         var clom_num = parseInt(clom.value)
         var row_num = parseInt(row.value)
-        // var clom = 
-        console.log("获取行列：-->>>>",clom_num ,row_num )
+        
+        // console.log("获取行列：- - ->>>>",clom_num ,row_num )
+        // $('#table_show').html(" ");
         table_div.innerHTML = " "
+     
         var table_main = document.createElement("table")
         table_main.id = "table_main"
         table_main.style.width = "800px"
@@ -42,9 +47,9 @@
           var tr_i = document.createElement("tr")
           tr_i.id = i+1
           table_main.appendChild(tr_i) 
-          console.log(i+1)
+          // console.log(i+1)
           for (var j=0;j<row_num;j++) {
-            console.log(j+1)
+            // console.log(j+1)
             var td_j = document.createElement("td")
             var checkbox = document.createElement("input")
             checkbox.type = "checkbox"
@@ -65,31 +70,113 @@
         }
         table_div.appendChild(table_main)
 
-        
+        table_new = table_main
 
       }
+      
       // function two_list(){
       //   console.log("触发合并list")
       // }
+      // 规范选择数据的行为
+     
       $("body").on("click","input[name='checkbox']",function(){
         
         if ($("input[name='checkbox']:checked").length > 2){
                 alert('提示信息', "最多选择两个");
                 return false;
             }
-        if ($("input[name='checkbox']:checked")){
-          console.log($("input[name='checkbox']:checked").length,$("input[name='checkbox']:checked").attr("id"))
+        // if ($("input[name='checkbox']:checked")){
+          if ($("input[name='checkbox']:checked").length ==2){
+            chose_list = []
+            var choose_list1 = $("input[name='checkbox']:checked")[0].id
+            var choose_list2 = $("input[name='checkbox']:checked")[1].id
+            var choose_row1 = choose_list1.toString()[1]
+            var choose_row2 = choose_list2.toString()[1]
+            var choose_clo1 = choose_list1.toString()[0]
+            var choose_clo2 = choose_list2.toString()[0]
+            console.log("打印id",choose_row1,choose_row2,choose_clo1,choose_clo2)
+            if ( choose_row1==choose_row2||choose_clo1==choose_clo2){
+              console.log("正确的索引")
+              chose_list[0] = choose_clo1+choose_row1
+              chose_list[1] = choose_clo2+choose_row2
 
-        } 
+            }
+            else{
+              alert('错误', "请选择同行或者同列的数据");
+              return false;
+            }
+
+          }
+          // console.log($("input[name='checkbox']:checked").length,$("input[name='checkbox']:checked").attr("id"))
+
+        // } 
       });
 
-
+      // 这里是对合并数据的修正
       function unino_two(){
-        console.log("合并行列")
+        console.log("合并行列",chose_list)
+        var table_div = document.getElementById("table_show")
+        table_div.innerHTML= " "
+        if (chose_list.length==2){
+          var clom_1 = chose_list[0][0]
+          var clom_2 = chose_list[1][0]
+          var row_1 = chose_list[0][1]
+          var row_2 = chose_list[1][1]
+          console.log("进行增删操作",clom_1,clom_2,row_1,row_2)
+          if(clom_1==clom_2){
+            // 保留行输出列
+            // var min_row = math.min([row_1,row_2])
+            // var table_main = document.getElementById("table_main")
+            // var id_save = clom_1+row_1
+            // // var save_elm = document.getElementById(id_save)
+            // var save_elm = $('#'+id_save)
+            // // var num_row = save_elm.getAttribute("rowSpan")
+
+            // // save_elm.rowSpan = save_elm.rowSpan +1
+            // var del_elm = document.getElementById(clom_2+row_2)
+            // console.log(save_elm,clom_1+row_1,table_new)
+            var tr_list = table_new.childNodes
+            var tr_list_num = tr_list.length 
+            for (var j=0;j<tr_list_num;j++){
+              var td_list = tr_list[j].childNodes
+              var td_list_num = td_list.length 
+              var del_elm_tr = tr_list[parseInt(clom_1)-1]
+              for (var k=0;k<td_list_num;k++){
+                if ((j+1).toString()==clom_1){
+                  // 保留第一列删除第二列
+                  var save_row =td_list[parseInt(row_1)-1].rowSpan
+                  td_list[parseInt(row_1)-1].rowSpan = td_list[parseInt(row_1)-1].rowSpan + 1
+                  // var del_elm_tr = tr_list[parseInt(clom_1)-1]
+                  var del_elm_td =  del_elm_tr.childNodes[parseInt(row_2)-1]
+                  // var par = del_elm_td.parentElement 
+                  // var remove = del_elm_tr.removeChild(del_elm_td)     BUG
+                  // // del_elm_tr.removeChild(del_elm_tr.childNodes[1])
+
+                }
+
+              }
+
+
+            }
+            console.log("表格单元",table_new.childNodes,typeof(save_elm) ,del_elm_tr,del_elm_td)
+
+          }
+          else{
+            // 保留列删除行
+
+          }
+
+        }
+        else{
+          alert("请先合并")
+        }
+        table_div.appendChild(table_new)
+
       }
 
 
     </script>
+    <!-- <div id = "table_show"></div> -->
 
     <div id = "table_show" style="display:flex;border: 1px  ;background-color: rgb(196, 32, 211);width: 100%;height: 30%;text-align:center;padding: 5% 5% 10% 32%;">
       <table border="2" bordercolor="black" width="800" height="800" cellspacing="0" cellpadding="5">

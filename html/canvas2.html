@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标demo</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+       
+    </canvas>
+    <script type="text/javascript">
+        //
+        var data = {
+            "station":[800,455,32]
+        }
+        //设置画布
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext('2d');
+        canvas.width = 1900;
+        canvas.height = 900;
+        canvas.style.backgroundColor = "white";
+
+        ctx.font = "30px Arial";
+        var myImg = new Image();
+        myImg.src = 'src/降水.png';
+        // ctx.drawImage(myImg, 0, 0, 1800, 900)
+        
+        // ctx.drawImage(myImg, 0, 0, 800, 800)   
+
+        // setTimeout(function () {
+        //         ctx.drawImage(myImg, 0, 0, 800, 800)
+        //         ctx.drawImage(bgImg, 0, 0, 800, 800)
+        //         document.querySelector('.generateImg').src = canvas.toDataURL("image/png")
+        //     }, 10)
+
+
+        let ballArr = [];
+        let colorArr = ['red', "blue", 'green'];
+
+        let mouseInCanvas = false;
+        let offsetX;//通过事件获取鼠标X
+        let offsetY;//通过事件获取鼠标Y
+        let r = 150;//球的半径
+
+        //小球类
+        class Ball {
+            undefined
+            constructor(x, y, color) {
+                undefined
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.r = r;
+            }
+            //绘制小球
+            render() {
+                undefined
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                
+                // ctx.drawImage(myImg, 0, 0, 1800, 900)
+                // myImg = " "
+                console.log("我在画图")
+                
+                ctx.fillText(data['station'][2],data['station'][0],data['station'][1]);
+                ctx.lineWidth=3;
+                ctx.strokeStyle = "blue";
+                ctx.stroke();
+                // ctx.fillStyle = this.color;
+                // ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        //会移动的小球类
+        class MoveBall extends Ball {
+            undefined
+            constructor(x, y, color) {
+                undefined
+                super(x, y, color);
+            }
+
+            Update() {
+                undefined
+                this.x += this.dX;
+                this.y += this.dY;
+                this.r -= this.dR;
+                if (this.r < 0) {
+                    undefined
+                    this.r = 0;
+                }
+            }
+        }
+
+        //鼠标移动
+        canvas.addEventListener('mousemove',
+            function (e) {
+                undefined
+                mouseInCanvas = true;
+                offsetX = e.offsetX;
+                offsetY = e.offsetY;
+
+            });
+        // moseclick
+        canvas.addEventListener('click',
+            function (e) {
+                undefined
+                mouseInCanvas = true;
+                offsetX = e.offsetX;
+                offsetY = e.offsetY;
+                var len_r =  (offsetX-data['station'][0])*(offsetX-data['station'][0]) + (offsetY-data['station'][1])*(offsetY-data['station'][1]);
+                if (len_r<150*150){
+                    data['station'][2] = data['station'][2] -1
+                    
+
+                }                
+                console.log(offsetX,offsetY,this.r)
+
+            });
+        //鼠标出画布
+        canvas.addEventListener('mouseout',
+            function (e) {
+                undefined
+                mouseInCanvas = false;
+            });
+        //鼠标进画布
+        canvas.addEventListener('mouseover',
+            function (e) {
+                undefined
+                mouseInCanvas = true;
+            });
+
+        setInterval(function () {
+            undefined
+            if (mouseInCanvas) {
+                undefined
+                //圆圈移动
+                ballArr.push(new MoveBall(offsetX, offsetY, colorArr[1]));
+                
+            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // ctx.drawImage(myImg, 0, 0, 1800, 900)
+            console.log("我在刷新")
+            for (let i = 0; i < ballArr.length; i++) {
+                undefined
+                ballArr[i].render();
+                ballArr[i].Update();
+            }
+        }, 50);
+    </script>
+</body>
+
+</html>
